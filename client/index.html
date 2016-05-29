@@ -1,0 +1,23 @@
+<DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1"><!--proper rendering and touch zooming (mobile first)-->
+<html ng-app = "myApp">
+	<head>
+		<title ng-bind="title">myApp</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<link rel="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+		<link rel="stylesheet" href="./stylesheets/main.css">
+		<script src="/app.js"></script>
+		<script src="controllers/usersController.js"></script>
+		
+	</head>
+	<body>
+		<!--grid system of up to 12 columns-->
+		<div class ="col-sm-12">
+			<!--<h1>Working</h1>-->
+			<div ng-view></div>
+		</div>
+	</body>
+</html>
