@@ -30,8 +30,8 @@ myApp.controller('usersController', function($scope, usersFactory){
 		for(var i=0; i<ca.length; i++)
 		{
 			var c = ca[i];
-			while (c.charAt(0)==' ') c = c.substring(1);
-			if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+			while (c.charAt(0)===' ') c = c.substring(1);
+			if (c.indexOf(name) === 0) return c.substring(name.length,c.length);
 		}
 		return "";
 	}
@@ -74,9 +74,67 @@ myApp.controller('usersController', function($scope, usersFactory){
 
 	$scope.userdata = [];
 
-	var getUser = function(){
-
+	// make methods available to factory
+	var getUser = function()
+	{
+		usersFactory.getUser(function(data)
+		{
+			$scope.userdata = data;
+		});
 	}
 
+	var checkUserExists = function(name, callback)
+	{
+		usersFactory.checkUserExists(name, callback);
+	}
+
+	$scope.addUser = function()
+	{
+		var check = $scope.newUser;
+		// front-end validation
+		if (!angular.isDefined($scope.newUser.username))
+		{
+			$('error').text('Name field can not be empty!');
+			return;
+		}
+		else 
+		{
+			checkUserExists($scope.newUser.username, function(result){
+				var nameToTest = '';
+				if(!jQuery.isEmptyObject(result))
+				{
+					nameToTest = result[0].username;
+				}
+				//check to see if username has been used already
+				if(nameToTest === $scope.newUser.username)
+				{
+					setCookie("username", $scope.newUser.username, 30);
+					window.location.assign("/#/dashboard");
+					console.log($scope.newUser.username);
+				}
+				else
+				{
+					console.log("1", $scope.newUser);
+					$scope.newUser.topics = 0;
+					$scope.newUser.posts = 0;
+					$scope.newUser.comments = 0;
+					usersFactory.addUser($scope.newUser, function(result){
+						console.log('This is result', result);
+						// error handling
+						if (result.status === 'failed')
+						{
+							console.log(result.err.error.username.message);
+							$('error').text(result.err.error.username.message);
+						}
+						// success
+						else
+						{
+							setCookie("username", $scope.newUser.username, 30);
+						}
+					});
+				}
+			});
+		}
+	}
 
 });
