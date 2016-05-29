@@ -1,7 +1,9 @@
 //=======================================================
 //usersFactory -- New User
 //=======================================================
-myApp.factory = ('usersFactory', function($http){
+App.factory('usersFactory', ['$http', function($http)
+{
+	//console.log(usersFactory);
 	var factory = {};
 
 	// method to be called by controller to check if user exists in db
@@ -30,4 +32,4 @@ myApp.factory = ('usersFactory', function($http){
 		});
 	}
 	return factory;
-});
+}]);

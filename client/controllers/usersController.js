@@ -1,5 +1,6 @@
 // client-side usersController
-myApp.controller('usersController', function($scope, usersFactory){
+App.controller('usersController', ['$scope', 'usersFactory', function($scope, usersFactory)
+{
 	//need to set a cookie to keep track of the user logged in
 
 	//=======================================================
@@ -74,7 +75,7 @@ myApp.controller('usersController', function($scope, usersFactory){
 
 	$scope.userdata = [];
 
-	// make methods available to factory
+	// make methods available to conttoller
 	var getUser = function()
 	{
 		usersFactory.getUser(function(data)
@@ -137,4 +138,4 @@ myApp.controller('usersController', function($scope, usersFactory){
 		}
 	}
 
-});
+}]);

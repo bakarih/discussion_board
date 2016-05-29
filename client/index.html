@@ -1,6 +1,6 @@
 <DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1"><!--proper rendering and touch zooming (mobile first)-->
-<html ng-app = "myApp">
+<html ng-app="myApp">
 	<head>
 		<title ng-bind="title">myApp</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
@@ -11,13 +11,15 @@
 		<link rel="stylesheet" href="./stylesheets/main.css">
 		<script src="/app.js"></script>
 		<script src="controllers/usersController.js"></script>
+		<script src="factories/userFactory.js"></script>
+		
 		
 	</head>
 	<body>
 		<!--grid system of up to 12 columns-->
 		<div class ="col-sm-12">
 			<!--<h1>Working</h1>-->
-			<div ng-view></div>
+			<div ng-view=""></div>
 		</div>
 	</body>
 </html>
