@@ -16,7 +16,7 @@ module.exports = function(app)
 
 	// login routes (index.html)
 	app.post('/checkUserExists/:any', function(req, res){
-		console.log(routes);
+		console.log('routes');
 		users.checkUserExists(req, res);
 	});
 

@@ -2,8 +2,9 @@
   "name": "discussion_board",
   "version": "0.0.1",
   "dependencies": {
+    "body-parser": "latest",
     "express": "~4.2.0",
     "mongoose": "latest",
-    "body-parser": "latest"
+    "mongoose-validator": "^1.2.5"
   }
 }
