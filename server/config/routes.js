@@ -33,8 +33,41 @@ module.exports = function(app)
 		topics.getTopics(req, res);
 	});
 
-	// user
+	// users
 	app.get('/showUser/:any', function(req, res){
-		
+		users.showUser(req, res);
 	});
+
+	// topic
+	app.get('/getTopicById/:id', function(req, res){
+		console.log('in routes for getTopicsById');
+		topics.getTopicsById(req, res);
+	});
+
+	app.get('/getPostsById/:id', function(req, res){
+		console.log('in routes for getPostsById');
+		posts.getTopicsById(req, res);
+	});
+
+	app.post('/addPost', function(req, res){
+		console.log('in routes for addPost');
+		posts.addPost(req, res);
+	});
+
+	app.post('/addComment', function(req, res){
+		console.log('in routes for addComment');
+		comments.addComment(req, res);
+	});
+
+	app.get('/getCommentsByPostId/:id', function(req, res){
+		console.log('in routes to get comments by post id');
+		comments.getCommentsByPostId(req, res);
+	});
+
+	app.post('/upVotePost/:id', function(req, res){
+		console.log('in routes for update');
+		posts.upVotePost(req, res);
+	});
+
+
 }
