@@ -23,7 +23,7 @@ App.factory('usersFactory', ['$http', function($http)
 		});
 	}
 
-	// method to be called by controller to get user from db nd show
+	// method to be called by controller to get user from db and show
 	// http get request sent to routes.js (back end)
 	factory.getUser = function(data, callback){
 		console.log(data);
