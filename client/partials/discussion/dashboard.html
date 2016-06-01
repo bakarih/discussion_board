@@ -1,1 +1,31 @@
+<div class = 'container' id="dashboard" ng-controller="dashboardController">
+	<div class="row" id="dashboard-user">
+		<div class="col-sm-4">
+			<h4>Welcome, <span id="current_user">Steve!</span></h4>
+		</div>
+		<div class="col-sm-2 col-sm-offset-6">
+			<a href='/profile' class="btn btn default">Profile</a> <button type="submit" class="btn btn default" ng-click="logout()">Logout
+			</button>
+		</div>
+		<div class="col-sm-4 col-sm-offset-4" id="dashboard-search">
+			<input type="text" class="form-control" ng-model="filter_topic" placeholder="Search...">
+		</div>
+	</div>	
+	<div class="row">
+		<div class="col-sm-12">
+			<table class="table table-striped table-bordered table-hover">
+				<thead>
+					<tr>
+						<th>Category</th>
+						<th>Topic</th>
+						<th>User Name</th>
+						<th>Posts</th>
+					</tr>
+				</thead>
+				<tbody>
+					
+				</tbody>
+			</table>
 
+	</div>
+</div>
