@@ -1,7 +1,7 @@
 //=======================================================
 //usersFactory -- New User
 //=======================================================
-discussionBoardModule.factory('dashboardFactory', function($http)
+App.factory('dashboardFactory', function($http)
 {
 	var factory = {};
 	// method to be called by controller to get user from db and show
@@ -33,14 +33,14 @@ discussionBoardModule.factory('dashboardFactory', function($http)
 	}
 	// method to be called by controller to get topics from db and show
 	// http get request sent to routes.js (back end)
-	factory.getTopics = function(callback)
+	factory.getTopic = function(callback)
 	{
 		$http.get('/getTopic').success(function(output)
 		{
 			callback(output);
 		});
 	}
-	function.showUser = function(user, callback)
+	factory.showUser = function(user, callback)
 	{
 		$http.get('/showUser/' + user).success(function(output)
 		{

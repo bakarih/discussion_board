@@ -1,5 +1,5 @@
 // client-side dashboard controller
-discussionBoardModule.controller('dashboardController', function($scope, dashboardFactory)
+App.controller('dashboardController', ['$scope', 'dashboardFactory', function($scope, dashboardFactory)
 {
 	//need to check for cookie to keep track of the user logged in
 	//and then need to provide a way to logout and destroy the cookie
@@ -62,12 +62,12 @@ discussionBoardModule.controller('dashboardController', function($scope, dashboa
 
 	var getTopicList = function()
 	{
-		dashboardFactory.getTopics(function(data){
+		dashboardFactory.getTopic(function(data){
 			$scope.topics = data;
 		});
 	}
 
-	getTopics();
+	getTopicList();
 
 	$scope.logout = function()
 	{
@@ -97,4 +97,4 @@ discussionBoardModule.controller('dashboardController', function($scope, dashboa
 	}
 
 	$scope.newUser = {};
-});
+}]);

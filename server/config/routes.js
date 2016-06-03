@@ -29,8 +29,8 @@ module.exports = function(app)
 		topics.addTopic(req, res);
 	});
 
-	app.get('/getTopics', function(req, res){
-		topics.getTopics(req, res);
+	app.get('/getTopic', function(req, res){
+		topics.getTopic(req, res);
 	});
 
 	// users
