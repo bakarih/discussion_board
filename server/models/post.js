@@ -16,4 +16,4 @@ var PostSchema = new mongoose.Schema({
 });
 
 mongoose.model('Post', PostSchema);
-PostSchema.path('content').required(true, "Topic field is required");
+PostSchema.path('content').required(true, "Post content field is required");
