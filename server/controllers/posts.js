@@ -42,7 +42,47 @@ model.exports = (function()
 					});
 				}
 			});
+		},
+		getPostsById: function(req, res)
+		{
+			console.log('posts controll', req.params.id);
+			Post.find({ topic_id: req.params.id}, function(err, results){
+				if(err) {
+					console.log(err);
+				} else {
+					results.reverse();
+					res.json(results);
+				}
+			})
+		},
+		getTopicById: function(req, res)
+		{
+			console.log('server control', req.params.id);
+			Topic.find({ _id: req.params.id}, function (err, results) {
+				if (err){
+					console.log('ERR');
+				} else {
+					res.json(results);
+				}
+			})
+		},
+		upVotePost: function(req, res)
+		{
+			console.log(req.params.id);
+			console.log('ready to upvote');
+			Post.update({_id: req.params.id}, {$inc: { up_votes: 1}}, function(err, results)
+			{
+				if (err)
+				{
+					console.log(err);
+					res.json({status: 'failed', err: err})
+				}
+				else 
+				{
+					res.json(results);	
+				}
+			})
 		}
 	}
-
-});
+})();
+	
