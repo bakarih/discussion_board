@@ -14,4 +14,4 @@ var CommentSchema = new mongoose.Schema({
 });
 
 mongoose.model('Comment', CommentSchema);
-PostScema.path('content').required(true, 'Comment content field cannot be empty');
+CommentSchema.path('content').required(true, 'Comment content field cannot be empty');

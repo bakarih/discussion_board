@@ -15,7 +15,7 @@ App.config(['$routeProvider', function($routeProvider){
 	})
 	.when('/topic/:id', {
 		title: "Topic",
-		controller: 'topicController',
+		controller: 'topicsController',
 		templateUrl: 'partials/discussion/topic.html'
 	})
 	.when('/user/:id', {

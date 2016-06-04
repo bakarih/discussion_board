@@ -6,7 +6,7 @@ var Post = mongoose.model('Post');
 var User = mongoose.model('User');
 var Topic = mongoose.model('Topic');
 
-model.exports = (function()
+module.exports = (function()
 {
 	return {
 		addPost: function(req, res)
@@ -45,7 +45,7 @@ model.exports = (function()
 		},
 		getPostsById: function(req, res)
 		{
-			console.log('posts controll', req.params.id);
+			console.log('posts controller', req.params.id);
 			Post.find({ topic_id: req.params.id}, function(err, results){
 				if(err) {
 					console.log(err);
@@ -53,18 +53,18 @@ model.exports = (function()
 					results.reverse();
 					res.json(results);
 				}
-			})
+			});
 		},
 		getTopicById: function(req, res)
 		{
 			console.log('server control', req.params.id);
 			Topic.find({ _id: req.params.id}, function (err, results) {
 				if (err){
-					console.log('ERR');
+					console.log(err);
 				} else {
 					res.json(results);
 				}
-			})
+			});
 		},
 		upVotePost: function(req, res)
 		{
@@ -81,7 +81,7 @@ model.exports = (function()
 				{
 					res.json(results);	
 				}
-			})
+			});
 		}
 	}
 })();

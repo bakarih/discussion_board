@@ -39,14 +39,14 @@ module.exports = function(app)
 	});
 
 	// topic
-	app.get('/getTopicById/:id', function(req, res){
+	app.get('/getTopicsById/:id', function(req, res){
 		console.log('in routes for getTopicsById');
 		topics.getTopicsById(req, res);
 	});
 
 	app.get('/getPostsById/:id', function(req, res){
 		console.log('in routes for getPostsById');
-		posts.getTopicsById(req, res);
+		posts.getPostsById(req, res);
 	});
 
 	app.post('/addPost', function(req, res){

@@ -3,7 +3,7 @@
 		<div class="col-sm-4 col-sm-offset-8">
 			<a href="#/dashboard" class="btn btn-link">DashBoard</a> <a href="#/logout" class="btn btn-link">Logout</a>
 		</div>
-		<div class="col-sm-12" ng-repeat="user is userdata">
+		<div class="col-sm-12" ng-repeat="user in userdata">
 			<h3>Username: <span ng-bind="user.username"></span></h3>
 			<h4>Posted...</h4>
 			<ul>

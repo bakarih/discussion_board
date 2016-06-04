@@ -10,7 +10,7 @@ var PostSchema = new mongoose.Schema({
 	author: {type: String, trim: true},
 	up_votes: {type: Number},
 	down_votes: {type: Number},
-	comments: [{type: Schema.types.OjectId, ref: 'Comment'}],
+	comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}],
 	created_at: {type: Date, default: Date.now},
 	updated_at: {type: Date, default: Date.now}
 });

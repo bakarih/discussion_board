@@ -6,49 +6,50 @@ var Comment = mongoose.model('Comment');
 var Post = mongoose.model('Post');
 var User = mongoose.model('User');
 
-module.exports = (function()
+module.exports = (function() 
 {
-	return 
-	{
+	return {
 		addComment: function(req, res)
 		{
 			var comment = new Comment(req.body);
-			comment._post = req.body.post_id;	
+			comment._post = req.body.post_id;
 			comment.save(function(err, comment)
 			{
 				if(err)
 				{
-					res.json({status: 'failed', err: err});
+					res.json({status:'failed', err:err})
 				}
-				else
+				else 
 				{
 					Post.findOne({_id: req.body.post_id}, function(err, Post)
 					{
-						console.log("This is Post: ", Post);
-						Post.comments.push(comment.comment._id);
-						Post.save(function(err, post){
+						console.log('this is Post:', Post);
+						Post.comments.push(comment._id)
+						Post.save(function(err, post)
+						{
 							if(err)
-							{
-								res.json({status: 'failed', err:err});
-							}
-							else
-							{
-								User.update({username: req.body.author}, {$inc: {comments: 1}}, {multi: true}, function(err1, record1)
-								{
-									if(err)
-									{
-										res.json({status: 'failed', err:err1});
-									}
-									else
-									{
-										res.json({status: 'success'});
-									}
-								});
-							}
-						});
-					});
+	  						{
+	  							res.json({status:'failed', err:err})
+	  						}
+	  						else
+	  						{
+  								// res.json({status:'success'})
+			  					User.update({username: req.body.author}, {$inc: { comments: 1 }}, {multi: true}, function(err1, record1)
+					  			{
+					  				if(err)
+					  				{
+					  					res.json({status:'failed', err:err1})
+					  				}
+					  				else
+					  				{
+					  					res.json({status:'success'})
+					  				}
+					  			})
+	  						}
+						})
+					})
 				}
-			});	
+			})
 		},
 		getCommentsByPostId: function(req, res)
 		{
