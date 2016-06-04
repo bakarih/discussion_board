@@ -1,7 +1,7 @@
 //=======================================================
 //usersFactory -- New User
 //=======================================================
-App.factory('usersFactory', ['$http', function($http)
+App.factory('usersFactory', '$location', ['$http', '$location', function($http)
 {
 	//console.log(usersFactory);
 	var factory = {};
@@ -19,6 +19,7 @@ App.factory('usersFactory', ['$http', function($http)
 	// http post request sent to routes.js (back end)
 	factory.addUser = function(data, callback){
 		$http.post('/addUser', data).success(function(output){
+			$location.path('/dashboard');
 			callback(output);
 		});
 	}
