@@ -1,26 +1,22 @@
 // app.js has discussion board module
-var App = angular.module('App', ['ngRoute']);
+var App = angular.module('myApp', ['ngRoute']);
 
 App.config(['$routeProvider', function($routeProvider){
 	$routeProvider
 	.when('/', {
 		title: "Login and Registration",
-		templateUrl: 'partials/discussion/index.html',
-		controller: 'usersController'
+		templateUrl: 'partials/discussion/login.html'
 	})
 	.when('/dashboard', {
 		title: "Main Dashboard",
-		templateUrl: 'partials/discussion/dashboard.html',
-		controller: 'dashboardController'
+		templateUrl: 'partials/discussion/dashboard.html'
 	})
 	.when('/topic/:id', {
 		title: "Topic",
-		controller: 'topicsController',
 		templateUrl: 'partials/discussion/topic.html'
 	})
 	.when('/user/:id', {
 		title: "User Profile",
-		controller: 'profileController',
 		templateUrl: 'partials/discussion/user.html'
 	})
 	.otherwise({

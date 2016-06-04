@@ -1,5 +1,5 @@
 // client-side usersController
-App.controller('usersController', ['$scope', 'usersFactory', function($scope, usersFactory)
+App.controller('usersController', function($scope, usersFactory)
 {
 	//need to set a cookie to keep track of the user logged in
 
@@ -138,4 +138,4 @@ App.controller('usersController', ['$scope', 'usersFactory', function($scope, us
 		}
 	}
 
-}]);
+});

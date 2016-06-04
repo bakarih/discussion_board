@@ -1,7 +1,7 @@
 //=======================================================
 //usersFactory -- New User
 //=======================================================
-App.factory('usersFactory', '$location', ['$http', '$location', function($http)
+App.factory('usersFactory', function($http, $location)
 {
 	//console.log(usersFactory);
 	var factory = {};
@@ -11,6 +11,7 @@ App.factory('usersFactory', '$location', ['$http', '$location', function($http)
 	factory.checkUserExists = function(name, callback){
 		console.log('in usersFactory', name);
 		$http.post('/checkUserExists/' + name).success(function(output){
+			$location.path('/dashboard');
 			callback(output);
 		});
 	}
@@ -19,8 +20,8 @@ App.factory('usersFactory', '$location', ['$http', '$location', function($http)
 	// http post request sent to routes.js (back end)
 	factory.addUser = function(data, callback){
 		$http.post('/addUser', data).success(function(output){
-			$location.path('/dashboard');
 			callback(output);
+			//$location.path('/dashboard');
 		});
 	}
 
@@ -33,4 +34,4 @@ App.factory('usersFactory', '$location', ['$http', '$location', function($http)
 		});
 	}
 	return factory;
-}]);
+});
