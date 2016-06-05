@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var fs = require('fs');
 
-mongoose.connect('mongodb://bakari:191914ab@ds025429.mlab.com:25429/heroku_jnmht1wv');
+mongoose.connect('mongodb://localhost/FullMean_discussionBoard');
 
 // require all of the model files in the models folder
 var models_path = __dirname + "/../models";
